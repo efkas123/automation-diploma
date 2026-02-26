@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+repositories{
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:7.9.4",
+            "org.slf4j:slf4j-simple:2.0.13",
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            'io.qameta.allure:allure-junit5:2.24.0',
+            'io.qameta.allure:allure-selenide:2.24.0'
+    )
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+}
