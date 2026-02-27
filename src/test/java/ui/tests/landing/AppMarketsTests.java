@@ -14,7 +14,6 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 import static io.qameta.allure.Allure.step;
 
-@DisplayName("Открытие страниц приложения Bring в магазинах приложений")
 @Epic("Лендинг")
 @Feature("Магазины приложений")
 @Story("Пользователь попадает в магазин приложений при клике на кнопку соответствующего магазина.")
