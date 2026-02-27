@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import ui.base.TestBase;
 import ui.pages.landing.LandingPage;
 
+import static io.qameta.allure.Allure.step;
+
 @DisplayName("Корректная загрузка элементов лендинг страницы Bring!.")
 @Epic("Лендинг")
 @Feature("Навигация на главной странице")
@@ -20,18 +22,38 @@ public class LandingTests extends TestBase {
     @Test
     @DisplayName("Отображение заголовка 'The simplest shopping list for sharing.' на главной странице Bring!")
     void checkMainHeaderVisible() {
-        landingPage
-                .openPage()
-                .assertSpecialHeaderVisibility();
+
+        step("Загрузка главной страницы.", () -> {
+            landingPage
+                    .openPage();
+        });
+        step("Проверка отображения заголовка", () -> {
+            landingPage
+                    .assertSpecialHeaderVisibility();
+        });
+
+
     }
 
     @Test
     @DisplayName("Переадресация на страницу 'Why Bring?' при клике на соответствующую кнопку.")
     void successfulRedirectToWhyBringPage() {
-        landingPage
-                .openPage()
-                .clickWhyBringButton()
-                .assertRedirectToWhyBringPage();
+
+        step("Загрузка главной страницы.", () -> {
+            landingPage
+                    .openPage();
+        });
+        step("Клик по кнопке 'Why Bring?'.", () -> {
+            landingPage
+                    .clickWhyBringButton();
+        });
+        step("Подтверждение успешной переадресации.", () -> {
+            landingPage
+                    .assertRedirectToWhyBringPage();
+        });
+
+
+
     }
 
 
