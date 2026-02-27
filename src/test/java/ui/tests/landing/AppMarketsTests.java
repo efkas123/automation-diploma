@@ -1,5 +1,8 @@
 package ui.tests.landing;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ui.base.TestBase;
@@ -9,8 +12,12 @@ import ui.pages.landing.LandingPage;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
+import static io.qameta.allure.Allure.step;
 
 @DisplayName("Открытие страниц приложения Bring в магазинах приложений")
+@Epic("Лендинг")
+@Feature("Магазины приложений")
+@Story("Пользователь попадает в магазин приложений при клике на кнопку соответствующего магазина.")
 public class AppMarketsTests extends TestBase {
 
     LandingPage landingPage = new LandingPage();
@@ -21,32 +28,47 @@ public class AppMarketsTests extends TestBase {
             appName = "Bring!";
 
     @Test
-    @DisplayName("Успешное открытие страницы Bring! в Google Play Market")
+    @DisplayName("Успешное открытие страницы Bring! в Google Play")
     void successfulOpenPlayMarketBringPage(){
-        landingPage
-                .openPage()
-                .clickGooglePlayStore();
 
-        switchTo().window(1); //Переключение на таб с playMarket
-        webdriver().shouldHave(urlContaining("https://play.google.com/store/apps/"));
+        step("Нажатие кнопки Google Play.", () -> {
+            landingPage
+                    .openPage()
+                    .clickGooglePlayStore();
 
 
-        googleMarket
-                .assertAppName(appName);
+        });
 
+        step("Переключение на соответствующую магазину вкладку.", () -> {
+            switchTo().window(1);
+            webdriver().shouldHave(urlContaining("https://play.google.com/store/apps/"));
+        });
+
+        step("Проверка открытия страницы приложения в Google Play.", () -> {
+            googleMarket
+                    .assertAppName(appName);
+        });
     }
 
     @Test
     @DisplayName("Успешное открытие страницы Bring! в Apple App Store")
     void successfulOpenAppStoreBringPage(){
-        landingPage
-                .openPage()
-                .clickAppleAppStore();
 
-        switchTo().window(1);
-        webdriver().shouldHave(urlContaining("https://apps.apple.com/"));
+        step("Нажатие кнопки App Store.", () -> {
+            landingPage
+                    .openPage()
+                    .clickAppleAppStore();
+        });
 
-        appStore
-                .assertAppName(appName);
+        step("Переключение на соответствующую магазину вкладку", () -> {
+            switchTo().window(1);
+            webdriver().shouldHave(urlContaining("https://apps.apple.com/"));
+        });
+
+        step("Проверка открытия страницы приложения в App Store", () -> {
+            appStore
+                    .assertAppName(appName);
+        });
+
     }
 }

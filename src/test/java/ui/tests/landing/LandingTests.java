@@ -1,11 +1,17 @@
 package ui.tests.landing;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ui.base.TestBase;
 import ui.pages.landing.LandingPage;
 
 @DisplayName("Корректная загрузка элементов лендинг страницы Bring!.")
+@Epic("Лендинг")
+@Feature("Навигация на главной странице")
+@Story("Корректное отображение лендинг страницы.")
 public class LandingTests extends TestBase {
 
     LandingPage landingPage = new LandingPage();

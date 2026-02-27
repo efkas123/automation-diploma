@@ -1,5 +1,6 @@
 ### Build ###
 build/
+allure-results
 out/
 bin/
 !**/src/main/**/out/
