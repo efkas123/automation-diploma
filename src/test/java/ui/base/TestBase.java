@@ -16,6 +16,7 @@ public class TestBase {
         browserSize = "1920x1080";
         browser= "chrome";
         browserVersion = "128";
+        remote = System.getProperty("remoteUrl");
         baseUrl = "https://www.getbring.com";
         pageLoadStrategy = "eager";
     }
