@@ -15,7 +15,7 @@ public class TestBase {
     static void setuUp() {
         browserSize = "1920x1080";
         browser= "chrome";
-        browserVersion = "latest";
+        browserVersion = "128";
         baseUrl = "https://www.getbring.com";
         pageLoadStrategy = "eager";
     }
