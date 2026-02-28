@@ -37,12 +37,9 @@ public class AuthorizationTests extends TestBase {
     void emailInputShouldntAcceptValuesHigherThan254() {
         authorizationPage
                 .openAuthorizationPage()
-                .emailSetValue(tooLongEmailValue);
-
-                if(authorizationPage.isContinueEnabled()){
-                    Assumptions.abort("ИЗВЕСТНЫЙ БАГ - поле ввода пропускает значения свыше 254 символов");
-                }
-                authorizationPage.btnContinueNotActiveAssertion();
+                .emailSetValue(tooLongEmailValue)
+                .skipIfContinueEnabledKnownBug()
+                .btnContinueNotActiveAssertion();
     }
 
     @Test
