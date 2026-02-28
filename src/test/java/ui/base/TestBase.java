@@ -23,11 +23,16 @@ public class TestBase {
         baseUrl = "https://www.getbring.com";
         pageLoadStrategy = "eager";
 
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
+
+        browserCapabilities = capabilities;
+
+
     }
 
 
