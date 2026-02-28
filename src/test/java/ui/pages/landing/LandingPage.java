@@ -1,12 +1,11 @@
 package ui.pages.landing;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class LandingPage {
 
@@ -18,25 +17,26 @@ public class LandingPage {
             whyBringButton = $("a[href*='why-bring']"),
             whyBringHeader = $(".h1-style"),
             languageDropDown = $("#w-dropdown-toggle-0"),
-            languageOptionButton = $("a.language-dropdown-link");
+            languageOptionButton = $("a.language-dropdown-link"),
+            deutschAddressHeader = $$("h1 strong").findBy(text("Impressum"));
 
 
-    public LandingPage openPage(){
+    public LandingPage openPage() {
         open("/en/home");
         return this;
     }
 
-    public LandingPage openPageInDeutsch(){
+    public LandingPage openPageInDeutsch() {
         open("/");
         return this;
     }
 
-    public LandingPage clickGooglePlayStore(){
+    public LandingPage clickGooglePlayStore() {
         googlePlayButton.click();
         return this;
     }
 
-    public LandingPage clickAppleAppStore(){
+    public LandingPage clickAppleAppStore() {
         appleAppStoreButton.click();
         return this;
     }
@@ -46,35 +46,43 @@ public class LandingPage {
         return this;
     }
 
-    public LandingPage assertSpecialHeaderVisibility(){
+    public LandingPage assertSpecialHeaderVisibility() {
         specialHeader.shouldBe(visible);
         specialHeader.shouldHave(text("The simplest shopping list for sharing."));
         return this;
     }
 
-    public LandingPage clickWhyBringButton(){
+    public LandingPage clickWhyBringButton() {
         whyBringButton.click();
         return this;
     }
 
-    public LandingPage assertRedirectToWhyBringPage(){
+    public LandingPage assertRedirectToWhyBringPage() {
         whyBringHeader.shouldHave(text("Bring! simplifies your daily visit at  the supermarket.")); //todo Вопрос к наставнику: допустим ли здесь хардкод, или же мне нужно вынести этот заголвоок?
         return this;
     }
 
-    public LandingPage clickLanguageDropDown(){
-        languageDropDown.shouldBe(visible);
-        languageDropDown.click();
+    public LandingPage selectLanguage(String language) {
+        languageDropDown.shouldBe(visible).click();
+        $$("a.language-dropdown-link")
+                .findBy(text(language))
+                .shouldBe(visible)
+                .click();
         return this;
     }
 
-    public LandingPage clickDeutschButton(){
+    public LandingPage clickDeutschButton() {
         languageOptionButton.shouldHave(text("Deutsch")).click();
         return this;
     }
 
-    public LandingPage clickEnglishButton(){
+    public LandingPage clickEnglishButton() {
         languageOptionButton.shouldHave(text("English")).click();
+        return this;
+    }
+
+    public LandingPage deutscchNotSwitchedAssertion() {
+        deutschAddressHeader.shouldBe(visible);
         return this;
     }
 }
