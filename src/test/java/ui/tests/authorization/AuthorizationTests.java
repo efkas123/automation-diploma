@@ -2,6 +2,7 @@ package ui.tests.authorization;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import ui.base.TestBase;
@@ -22,6 +23,7 @@ public class AuthorizationTests extends TestBase {
     @Test
     @DisplayName("Поле ввода email не принимает значения, не соответствующие маске value@domain.name")
     @Tag("Позитивный")
+    @Owner("Филипп Котов")
     void emailInputDoesntAcceptNonMaskTest() {
         authorizationPage
                 .openAuthorizationPage()                //todo fix Здесь возникла сложность: мой базовый url - www.getbring, а на странице авторизации - web.getbring. Как мне поступать в такой ситуации? Пока сделал костыль в виде хардкод ссылки в методе
@@ -34,6 +36,7 @@ public class AuthorizationTests extends TestBase {
             @Tag("Негативный"),
             @Tag("Баг")
     })
+    @Owner("Филипп Котов")
     void emailInputShouldntAcceptValuesHigherThan254() {
         authorizationPage
                 .openAuthorizationPage()
@@ -48,6 +51,7 @@ public class AuthorizationTests extends TestBase {
             @Tag("Негативный"),
             @Tag("Баг")
     })
+    @Owner("Филипп Котов")
     void emailInputShouldntAcceptValuesLowerThan7() {
         authorizationPage
                 .openAuthorizationPage()

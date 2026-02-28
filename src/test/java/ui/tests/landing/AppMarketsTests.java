@@ -2,6 +2,7 @@ package ui.tests.landing;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,6 +29,7 @@ public class AppMarketsTests extends TestBase {
 
     @Test
     @DisplayName("Успешное открытие страницы Bring! в Google Play")
+    @Owner("Филипп Котов")
     void successfulOpenPlayMarketBringPage(){
 
         step("Нажатие кнопки Google Play.", () -> {
@@ -57,6 +59,7 @@ public class AppMarketsTests extends TestBase {
 
     @Test
     @DisplayName("Успешное открытие страницы Bring! в Apple App Store")
+    @Owner("Филипп Котов")
     void successfulOpenAppStoreBringPage(){
 
         step("Нажатие кнопки App Store.", () -> {
