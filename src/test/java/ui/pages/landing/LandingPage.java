@@ -1,7 +1,6 @@
 package ui.pages.landing;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -21,13 +20,8 @@ public class LandingPage {
             deutschAddressHeader = $$("h1 strong").findBy(text("Impressum"));
 
 
-    public LandingPage openPage() {
+    public LandingPage openLandingPage() {
         open("/en/home");
-        return this;
-    }
-
-    public LandingPage openPageInDeutsch() {
-        open("/");
         return this;
     }
 
@@ -41,14 +35,14 @@ public class LandingPage {
         return this;
     }
 
-    public LandingPage clickBringWebApp() {
+    public LandingPage clickGetBringButton() {
         getBringButton.click();
         return this;
     }
 
-    public LandingPage assertSpecialHeaderVisibility() {
+    public LandingPage assertSpecialHeaderVisibility(String headerText) {
         specialHeader.shouldBe(visible);
-        specialHeader.shouldHave(text("The simplest shopping list for sharing."));
+        specialHeader.shouldHave(text(headerText));
         return this;
     }
 
@@ -83,6 +77,11 @@ public class LandingPage {
 
     public LandingPage deutscchNotSwitchedAssertion() {
         deutschAddressHeader.shouldBe(visible);
+        return this;
+    }
+
+    public LandingPage switchToTab(int tabNumber){
+        switchTo().window(tabNumber);
         return this;
     }
 }

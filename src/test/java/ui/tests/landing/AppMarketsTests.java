@@ -32,15 +32,21 @@ public class AppMarketsTests extends TestBase {
 
         step("Нажатие кнопки Google Play.", () -> {
             landingPage
-                    .openPage()
+                    .openLandingPage()
                     .clickGooglePlayStore();
 
 
         });
 
         step("Переключение на соответствующую магазину вкладку.", () -> {
-            switchTo().window(1);
+            landingPage.
+                    switchToTab(1);
             webdriver().shouldHave(urlContaining("https://play.google.com/store/apps/"));
+            /*todo fix Тут встал вопрос: мне нужно переключаться на tab что на одной странице, что на другой
+            Что мне нужно делать: писать для каждой страницы свой switchTab? Сомнительно.
+            Как мне тогда вынести метод switchTab над страницами? Или мне вообще нужно писать голый код?
+            Просьба оставить пояснения.
+             */
         });
 
         step("Проверка открытия страницы приложения в Google Play.", () -> {
@@ -55,7 +61,7 @@ public class AppMarketsTests extends TestBase {
 
         step("Нажатие кнопки App Store.", () -> {
             landingPage
-                    .openPage()
+                    .openLandingPage()
                     .clickAppleAppStore();
         });
 

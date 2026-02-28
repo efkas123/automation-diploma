@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ui.base.TestBase;
+import ui.pages.authorization.AuthorizationPage;
 import ui.pages.components.CookieBanner;
 import ui.pages.landing.LandingPage;
 
@@ -18,7 +19,11 @@ import static io.qameta.allure.Allure.step;
 @Story("Корректное отображение лендинг страницы.")
 public class LandingTests extends TestBase {
 
+    private final String
+                specialHeaderText = "The simplest shopping list for sharing.";
+
     LandingPage landingPage = new LandingPage();
+    AuthorizationPage authorizationPage = new AuthorizationPage();
 
     @Test
     @DisplayName("Отображение заголовка 'The simplest shopping list for sharing.' на главной странице Bring!")
@@ -26,11 +31,11 @@ public class LandingTests extends TestBase {
 
         step("Загрузка главной страницы.", () -> {
             landingPage
-                    .openPage();
+                    .openLandingPage();
         });
         step("Проверка отображения заголовка", () -> {
             landingPage
-                    .assertSpecialHeaderVisibility();
+                    .assertSpecialHeaderVisibility(specialHeaderText);
         });
 
 
@@ -42,7 +47,7 @@ public class LandingTests extends TestBase {
 
         step("Загрузка главной страницы.", () -> {
             landingPage
-                    .openPage();
+                    .openLandingPage();
         });
         step("Клик по кнопке 'Why Bring?'.", () -> {
             landingPage
@@ -62,7 +67,7 @@ public class LandingTests extends TestBase {
     @DisplayName("Успешная смена языка с английского на немецкий.")
     void successfulSwitchToDeutsch() {
         landingPage
-                .openPage()
+                .openLandingPage()
                 .selectLanguage("Deutsch");
 
     }
@@ -76,7 +81,7 @@ public class LandingTests extends TestBase {
 
         step("Открытие главной страницы", () -> {
             landingPage
-                    .openPage();
+                    .openLandingPage();
         });
 
         step("Accept cookies", () -> {
@@ -102,6 +107,25 @@ public class LandingTests extends TestBase {
                                                         по геолокации всё равно сайт выбирает английский, поэтому
                                                         пришлось идти с костылями окольными путями.
                                                     */
+    }
+
+    @Test
+    @DisplayName("Успешный переход с лендинга на страницу авторизации в Bring!.")
+    void successfulRedirectToBringAuthorizationPage(){
+        step("Нажатие кнопки \"Get bring!\".", () -> {
+            landingPage
+                    .openLandingPage()
+                    .clickGetBringButton();
+        });
+
+        step("Переключение на соответствующую вкладку.", () -> {
+            landingPage.switchToTab(1);
+        });
+
+        step("Верификация результата.", () -> {
+            authorizationPage
+                    .authorizationPageVisibleAssertion();
+        });
     }
 
 }
