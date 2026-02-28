@@ -66,7 +66,7 @@ public class AuthorizationPage {
 
     public AuthorizationPage skipIfContinueEnabledKnownBug() {
         if (btnContinue.isEnabled()) {
-            Assumptions.abort("KNOWN BUG: Continue enabled for email > 254");
+            Assumptions.abort("ИЗВЕСТНЫЙ БАГ - поле ввода пропускает значения свыше 254 символов");
         }
         return this;
     }

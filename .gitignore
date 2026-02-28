@@ -1,6 +1,7 @@
 ### Build ###
+allure-results/
+allure-report/
 build/
-allure-results
 out/
 bin/
 !**/src/main/**/out/
@@ -61,3 +62,5 @@ ehthumbs.db
 *.tmp
 *.swp
 *.swo
+
+/notifications
