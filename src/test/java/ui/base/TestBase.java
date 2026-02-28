@@ -31,6 +31,7 @@ public class TestBase {
         Attachments.screenshotAs("Last Screenshot");
         Attachments.pageSource();
         Attachments.browserConsoleLogs();
+        Attachments.addVideo();
         closeWebDriver();
     }
 }
