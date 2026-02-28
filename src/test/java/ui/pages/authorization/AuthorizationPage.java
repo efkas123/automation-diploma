@@ -43,6 +43,10 @@ public class AuthorizationPage {
         return this;
     }
 
+    public boolean isContinueEnabled() {
+        return btnContinue.isEnabled();
+    }
+
     public AuthorizationPage
     btnContinueActiveAssertion() {
         btnContinue.shouldBe(enabled);
