@@ -5,6 +5,9 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.util.Map;
 
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -19,7 +22,15 @@ public class TestBase {
         remote = System.getProperty("remoteUrl");
         baseUrl = "https://www.getbring.com";
         pageLoadStrategy = "eager";
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
     }
+
+
 
     @BeforeEach
     void beforeEachSetUp(){
