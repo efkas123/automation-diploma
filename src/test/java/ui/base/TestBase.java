@@ -16,9 +16,9 @@ public class TestBase {
 
     @BeforeAll
     static void setuUp() {
-        browserSize = "1920x1080";
-        browser= "chrome";
-        browserVersion = "128";
+        browserSize = System.getProperty("browserSize", "1920x1080");
+        browser= System.getProperty("browser", "chrome");
+        browserVersion = System.getProperty("browserVersion", "128");
         remote = System.getProperty("remoteUrl");
         baseUrl = "https://www.getbring.com";
         pageLoadStrategy = "eager";

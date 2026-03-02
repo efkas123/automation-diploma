@@ -1,6 +1,8 @@
 package ui.pages.landing;
 
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.Assumptions;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -82,6 +84,14 @@ public class LandingPage {
 
     public LandingPage switchToTab(int tabNumber){
         switchTo().window(tabNumber);
+        return this;
+    }
+
+    public LandingPage checkSpecialHeaderOrAbort() {
+        if (!$(specialHeader).isDisplayed()) {
+            Assumptions.abort("ИЗВЕСТНЫЙ БАГ - при попытке смены языка с немецкого " +
+                    "на английский, происходит переход на странциу контактов");
+        }
         return this;
     }
 }

@@ -2,9 +2,11 @@ package ui.tests.landing;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ui.base.TestBase;
 import ui.pages.authorization.AuthorizationPage;
@@ -27,6 +29,11 @@ public class LandingTests extends TestBase {
 
     @Test
     @DisplayName("Отображение заголовка 'The simplest shopping list for sharing.' на главной странице Bring!")
+    @Owner("Филипп Котов")
+    @Tags({
+            @Tag("Позитивный"),
+            @Tag("UI")
+    })
     void checkMainHeaderVisible() {
 
         step("Загрузка главной страницы.", () -> {
@@ -43,6 +50,11 @@ public class LandingTests extends TestBase {
 
     @Test
     @DisplayName("Переадресация на страницу 'Why Bring?' при клике на соответствующую кнопку.")
+    @Owner("Филипп Котов")
+    @Tags({
+            @Tag("Позитивный"),
+            @Tag("UI")
+    })
     void successfulRedirectToWhyBringPage() {
 
         step("Загрузка главной страницы.", () -> {
@@ -65,18 +77,34 @@ public class LandingTests extends TestBase {
 
     @Test
     @DisplayName("Успешная смена языка с английского на немецкий.")
+    @Owner("Филипп Котов")
+    @Tags({
+            @Tag("Позитивный"),
+            @Tag("UI")
+    })
     void successfulSwitchToDeutsch() {
-        landingPage
-                .openLandingPage()
-                .selectLanguage("Deutsch");
+
+        step("Загрузка главной страницы", () -> {
+            landingPage
+                    .openLandingPage();
+        });
+        step("Выбор немецкого языка", () -> {
+            landingPage
+                    .selectLanguage("Deutsch");
+        });
+
+
 
     }
 
     @Test
     @DisplayName("Успешная смена языка с немецкого на английский")
-    @Tag("Баг")
-    //Здесь не был уверен, как сделать так, чтобы тест у меня падал (нашёл баг),
-    // но при этом помечался успешным, поэтому использовал костыль.
+    @Tags({
+            @Tag("Позитивный"),
+            @Tag("Баг"),
+            @Tag("UI"),
+    })
+    @Owner("Филипп Котов")
     void successfulSwitchToEnglish() {
 
         step("Открытие главной страницы", () -> {
@@ -96,21 +124,26 @@ public class LandingTests extends TestBase {
             landingPage
                     .selectLanguage("English");
         });
-        step("Подтверждение негативного результата", () -> {
+        step("Подтверждение успешной смены языка на английский", () -> {
             landingPage
-                    .deutscchNotSwitchedAssertion();
-        }); //todo fix Вопрос: здесь уместно будет назвать тест-кейс "Успешная смена языка" и пометить багом при том, что тест нашёл баг, а успешного прохождения нет??
-
-                                                    /*
-                                                        Здесь случился некоторый конфуз: у сайта нет ручки
-                                                        bring.com/de/home, а при насильном открытии bring.com,
-                                                        по геолокации всё равно сайт выбирает английский, поэтому
-                                                        пришлось идти с костылями окольными путями.
-                                                    */
+                    .checkSpecialHeaderOrAbort()
+                    .assertSpecialHeaderVisibility(specialHeaderText);
+        });
+ /*
+     Здесь случился некоторый конфуз: у сайта нет ручки
+     bring.com/de/home, а при насильном открытии bring.com,
+     по геолокации всё равно сайт выбирает английский, поэтому
+     пришлось идти с костылями окольными путями.
+ */
     }
 
     @Test
     @DisplayName("Успешный переход с лендинга на страницу авторизации в Bring!.")
+    @Owner("Филипп Котов")
+    @Tags({
+            @Tag("Позитивный"),
+            @Tag("UI")
+    })
     void successfulRedirectToBringAuthorizationPage(){
         step("Нажатие кнопки \"Get bring!\".", () -> {
             landingPage

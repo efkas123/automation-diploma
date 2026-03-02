@@ -33,10 +33,7 @@ public class AuthorizationPage {
         return this;
     }
 
-    public AuthorizationPage switchToTab(int tabNumber) {
-        switchTo().window(tabNumber);
-        return this;
-    }
+
 
     public AuthorizationPage
     btnContinueNotActiveAssertion() {
