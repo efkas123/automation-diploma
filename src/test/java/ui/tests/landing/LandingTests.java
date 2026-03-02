@@ -22,7 +22,8 @@ import static io.qameta.allure.Allure.step;
 public class LandingTests extends TestBase {
 
     private final String
-                specialHeaderText = "The simplest shopping list for sharing.";
+                specialHeaderText = "The simplest shopping list for sharing.",
+                deutschSpecialHeaderText = "Die einfachste Einkaufsliste zum Teilen";
 
     LandingPage landingPage = new LandingPage();
     AuthorizationPage authorizationPage = new AuthorizationPage();
@@ -82,7 +83,7 @@ public class LandingTests extends TestBase {
             @Tag("Позитивный"),
             @Tag("UI")
     })
-    void successfulSwitchToDeutsch() {
+    void successfulSwitchToDeutschTest() {
 
         step("Загрузка главной страницы", () -> {
             landingPage
@@ -91,6 +92,11 @@ public class LandingTests extends TestBase {
         step("Выбор немецкого языка", () -> {
             landingPage
                     .selectLanguage("Deutsch");
+        });
+
+        step("", () -> {
+            landingPage
+                    .assertSpecialHeaderVisibility(deutschSpecialHeaderText);
         });
 
 
@@ -105,7 +111,7 @@ public class LandingTests extends TestBase {
             @Tag("UI"),
     })
     @Owner("Филипп Котов")
-    void successfulSwitchToEnglish() {
+    void successfulSwitchToEnglishTest() {
 
         step("Открытие главной страницы", () -> {
             landingPage
@@ -144,7 +150,7 @@ public class LandingTests extends TestBase {
             @Tag("Позитивный"),
             @Tag("UI")
     })
-    void successfulRedirectToBringAuthorizationPage(){
+    void successfulRedirectToBringAuthorizationPageTest(){
         step("Нажатие кнопки \"Get bring!\".", () -> {
             landingPage
                     .openLandingPage()

@@ -63,7 +63,7 @@ public class AuthorizationTests extends TestBase {
             @Tag("UI")
     })
     @Owner("Филипп Котов")
-    void emailInputShouldntAcceptValuesHigherThan254() {
+    void emailInputShouldntAcceptValuesHigherThan254Test() {
 
         step("Загрузка главной страницы", () -> {
             authorizationPage
@@ -92,7 +92,7 @@ public class AuthorizationTests extends TestBase {
             @Tag("UI")
     })
     @Owner("Филипп Котов")
-    void emailInputShouldntAcceptValuesLowerThan7() {
+    void emailInputShouldntAcceptValuesLowerThan7Test() {
 
         step("Загрузка главной страницы.", () -> {
             authorizationPage

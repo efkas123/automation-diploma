@@ -37,7 +37,7 @@ public class AppMarketsTests extends TestBase {
             @Tag("Позитивный"),
             @Tag("UI")
     })
-    void successfulOpenPlayMarketBringPage(){
+    void successfulOpenPlayMarketBringPageTest(){
 
         step("Нажатие кнопки Google Play.", () -> {
             landingPage
@@ -72,7 +72,7 @@ public class AppMarketsTests extends TestBase {
             @Tag("Позитивный"),
             @Tag("UI")
     })
-    void successfulOpenAppStoreBringPage(){
+    void successfulOpenAppStoreBringPageTest(){
 
         step("Нажатие кнопки App Store.", () -> {
             landingPage
