@@ -8,4 +8,8 @@ public class ConfigProvider {
     public static UIConfig ui() {
         return ConfigFactory.create(UIConfig.class, System.getProperties());
     }
+
+    public static APIConfig api() {
+        return ConfigFactory.create(APIConfig.class, System.getProperties());
+    }
 }
