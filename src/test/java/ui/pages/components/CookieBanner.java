@@ -10,7 +10,7 @@ public class CookieBanner {
             cookieAccept = $("#consent-accept");
 
     public void acceptCookieIfVisible(){
-        if (cookieAccept.exists()){
+        if (cookieAccept.isDisplayed()){
             cookieAccept.click();
         }
     }

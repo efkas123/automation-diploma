@@ -88,7 +88,7 @@ public class LandingPage {
     }
 
     public LandingPage checkSpecialHeaderOrAbort() {
-        if (!$(specialHeader).isDisplayed()) {
+        if (!specialHeader.isDisplayed()) {
             Assumptions.abort("ИЗВЕСТНЫЙ БАГ - при попытке смены языка с немецкого " +
                     "на английский, происходит переход на странциу контактов");
         }

@@ -57,7 +57,8 @@ public class AuthorizationPage {
     }
 
     public AuthorizationPage invalidEmailAlertAssertion() {
-        invalidEmailAlert.shouldBe(enabled);
+        invalidEmailAlert.shouldBe(visible);
+        invalidEmailAlert.shouldHave(text("Oops, invalid email"));
         return this;
     }
 

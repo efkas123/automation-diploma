@@ -94,7 +94,7 @@ public class LandingTests extends TestBase {
                     .selectLanguage("Deutsch");
         });
 
-        step("", () -> {
+        step("Верификация результата", () -> {
             landingPage
                     .assertSpecialHeaderVisibility(deutschSpecialHeaderText);
         });
