@@ -1,6 +1,9 @@
 package ui.base;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.ConfigProvider;
+import config.UIConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,18 +12,28 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 
 import static com.codeborne.selenide.Configuration.*;
+import static com.codeborne.selenide.Configuration.remote;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
 
     @BeforeAll
     static void setUp() {
-        browserSize = System.getProperty("browserSize", "1920x1080");
-        browser = System.getProperty("browser", "chrome");
-        browserVersion = System.getProperty("browserVersion", "128");
-        remote = System.getProperty("remoteUrl");
-        baseUrl = "https://www.getbring.com";
+        UIConfig cfg = ConfigProvider.ui();
+
+
+        browser = cfg.browser();
+        browserVersion = cfg.browserVersion();
+        browserSize = cfg.browserSize();
+        baseUrl = cfg.baseUrl();
         pageLoadStrategy = "eager";
+
+        String remote = cfg.remoteUrl();
+        if (remote != null && !remote.isBlank()) {
+            Configuration.remote = remote;
+        } else {
+            Configuration.remote = null; // важно: null, не ""
+        }
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
