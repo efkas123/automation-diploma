@@ -34,20 +34,8 @@ public class AuthorizationPage {
     }
 
 
-
-    public AuthorizationPage
-    btnContinueNotActiveAssertion() {
+    public AuthorizationPage btnContinueNotActiveAssertion() {
         btnContinue.shouldBe(disabled);
-        return this;
-    }
-
-    public boolean isContinueEnabled() {
-        return btnContinue.isEnabled();
-    }
-
-    public AuthorizationPage
-    btnContinueActiveAssertion() {
-        btnContinue.shouldBe(enabled);
         return this;
     }
 
