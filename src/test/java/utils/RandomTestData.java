@@ -8,6 +8,6 @@ public class RandomTestData {
 
     public static String getUserEmail() { return faker.internet().emailAddress(); }
 
-    public String userEmail = getUserEmail();
+    public static String userEmail = getUserEmail();
 
 }
