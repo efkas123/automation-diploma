@@ -2,12 +2,14 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-import static org.aeonbits.owner.Config.Sources;
 
-@Sources({
-        "system:properties",
+
+@Config.LoadPolicy(Config.LoadType.MERGE)
+@Config.Sources({
+        "classpath:config/api.properties",
+        "classpath:config/api.local.properties",
         "system:env",
-        "classpath:config/api.properties"
+        "system:properties"
 })
 
 public interface APIConfig extends Config {
@@ -16,7 +18,7 @@ public interface APIConfig extends Config {
     String baseUri();
 
     @Key("api.basePath")
-    @DefaultValue("rest/v2")
+    @DefaultValue("/rest/v2")
     String basePath();
 
     @Key("api.authPath")
