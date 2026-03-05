@@ -1,8 +1,5 @@
 package api.specs.authorization;
 
-import api.specs.BaseSpec;
-import config.APIConfig;
-import config.ConfigProvider;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
@@ -15,8 +12,6 @@ import static io.restassured.RestAssured.with;
 import static io.restassured.filter.log.LogDetail.*;
 
 public class PostBringAuthSpec {
-
-    static APIConfig api = ConfigProvider.api();
 
     public static RequestSpecification postBringAuthRequestSpec = with()
             .spec(baseRequestSpec)

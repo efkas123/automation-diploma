@@ -23,7 +23,11 @@ public class AuthApi {
                 .spec(postBringAuthResponseSpec)
                 .extract().as(AuthResponseModel.class);
 
-        System.out.println(response.getAccessToken());
+        //System.out.println(response.getAccessToken());
         return response.getAccessToken();
     }
+
+
+
+
 }

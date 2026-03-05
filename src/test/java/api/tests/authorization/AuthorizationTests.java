@@ -2,6 +2,7 @@ package api.tests.authorization;
 
 import config.APIConfig;
 import config.ConfigProvider;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -20,12 +21,13 @@ public class AuthorizationTests {
     APIConfig api = ConfigProvider.api();
 
     @Test
-    @DisplayName("Неудачная попытка регистрации пользователя с обходом Captcha.")
+    @DisplayName("Отказ в регистрации пользователя пользователя с обходом Captcha.")
     @Tags({
             @Tag("API"),
             @Tag("Негативный")
     })
-    void unsuccessfulSignupAttemptTest() {
+    @Owner("Филипп Котов")
+    void unsuccessfulSignupAttempt410Test() {
         given()
                 .contentType("application/x-www-form-urlencoded")
                 .header("Authorization", "Bearer " + "null")
@@ -43,7 +45,8 @@ public class AuthorizationTests {
             @Tag("API"),
             @Tag("Позитивный")
     })
-    void SuccessfulLoginAttemptTest() {
+    @Owner("Филипп Котов")
+    void SuccessfulLoginAttempt200Test() {
         given()
                 .spec(postBringAuthRequestSpec)
                 .formParam("email", api.username())
@@ -60,7 +63,8 @@ public class AuthorizationTests {
             @Tag("API"),
             @Tag("Позитивный")
     })
-    void successfulAcquiringAccessTokenTest() {
+    @Owner("Филипп Котов")
+    void successfulAcquiringAccessToken200Test() {
         given()
                 .spec(postBringAuthRequestSpec)
                 .formParam("email", api.username())
@@ -75,7 +79,12 @@ public class AuthorizationTests {
 
     @Test
     @DisplayName("Отказ в авторизации при передаче невалидных учётных данных пользователя.")
-    void unsuccessfulBadCredentialsLoginTest(){
+    @Tags({
+            @Tag("API"),
+            @Tag("Негативный")
+    })
+    @Owner("Филипп Котов")
+    void unsuccessfulBadCredentialsLogin401Test(){
         given()
                 .spec(postBringAuthRequestSpec)
                 .formParam("email", random.userEmail)

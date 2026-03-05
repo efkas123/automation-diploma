@@ -3,6 +3,8 @@ package api.specs;
 import config.APIConfig;
 import config.ConfigProvider;
 import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
@@ -16,10 +18,10 @@ public class BaseSpec {
 
     public static RequestSpecification baseRequestSpec = with()
             .filter(withCustomTemplates())
+            .filter(new RequestLoggingFilter(ALL))
+            .filter(new ResponseLoggingFilter(ALL))
             .baseUri(api.baseUri())
-            .basePath(api.basePath())
-            .log().uri()
-            .log().method();
+            .basePath(api.basePath());
 
     public static ResponseSpecification baseResponseSpec = new ResponseSpecBuilder()
             .log(STATUS)

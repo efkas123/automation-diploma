@@ -17,6 +17,8 @@ public class TestBase {
     static void beforeAll() {
         //Здесь пришлось спросить у гпт, как по-умолчанию ко всем запросам добавить авторизацию.
 
+
+
         token = AuthApi.getAccessToken();
 
         authorizedRequestSpec = new RequestSpecBuilder()
@@ -25,5 +27,8 @@ public class TestBase {
                 .build();
 
         RestAssured.requestSpecification = authorizedRequestSpec;
+
+
+
     }
 }
