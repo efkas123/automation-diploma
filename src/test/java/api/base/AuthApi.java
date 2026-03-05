@@ -12,7 +12,7 @@ public class AuthApi {
 
     static APIConfig api = ConfigProvider.api();
 
-    public static String getAccessToken() {
+    public static AuthResponseModel login() {
         AuthResponseModel response = given()
                 .spec(postBringAuthRequestSpec)
                 .formParam("email", api.username())
@@ -22,12 +22,7 @@ public class AuthApi {
                 .then()
                 .spec(postBringAuthResponseSpec)
                 .extract().as(AuthResponseModel.class);
-
-        //System.out.println(response.getAccessToken());
-        return response.getAccessToken();
+        return response;
     }
-
-
-
 
 }

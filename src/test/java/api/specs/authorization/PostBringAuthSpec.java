@@ -15,7 +15,6 @@ public class PostBringAuthSpec {
 
     public static RequestSpecification postBringAuthRequestSpec = with()
             .spec(baseRequestSpec)
-            .filter(withCustomTemplates())
             .contentType(ContentType.URLENC)
             .log().uri()
             .log().method()
