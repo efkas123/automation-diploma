@@ -22,8 +22,8 @@ import static io.qameta.allure.Allure.step;
 public class LandingTests extends TestBase {
 
     private final String
-                specialHeaderText = "The simplest shopping list for sharing.",
-                deutschSpecialHeaderText = "Die einfachste Einkaufsliste zum Teilen";
+                specialHeaderText = "The easiest shopping list to share",
+                deutschSpecialHeaderText = "Die kostenlose Einkaufslisten- App zum Teilen";
 
     LandingPage landingPage = new LandingPage();
     AuthorizationPage authorizationPage = new AuthorizationPage();
@@ -35,7 +35,7 @@ public class LandingTests extends TestBase {
             @Tag("Позитивный"),
             @Tag("UI")
     })
-    void checkMainHeaderVisible() {
+    void checkMainHeaderVisibility() {
 
         step("Загрузка главной страницы.", () -> {
             landingPage
@@ -135,12 +135,7 @@ public class LandingTests extends TestBase {
                     .checkSpecialHeaderOrAbort()
                     .assertSpecialHeaderVisibility(specialHeaderText);
         });
- /*
-     Здесь случился некоторый конфуз: у сайта нет ручки
-     bring.com/de/home, а при насильном открытии bring.com,
-     по геолокации всё равно сайт выбирает английский, поэтому
-     пришлось идти с костылями окольными путями.
- */
+
     }
 
     @Test
@@ -151,9 +146,13 @@ public class LandingTests extends TestBase {
             @Tag("UI")
     })
     void successfulRedirectToBringAuthorizationPageTest(){
+        step("Загрузка главной страницы.", () -> {
+           landingPage
+                   .openLandingPage();
+        });
+
         step("Нажатие кнопки \"Get bring!\".", () -> {
             landingPage
-                    .openLandingPage()
                     .clickGetBringButton();
         });
 

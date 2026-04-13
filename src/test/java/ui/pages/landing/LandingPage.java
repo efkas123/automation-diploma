@@ -10,12 +10,12 @@ import static com.codeborne.selenide.Selenide.*;
 public class LandingPage {
 
     private final SelenideElement
-            googlePlayButton = $("[data-button-type='hero-google-play-store']"),
-            appleAppStoreButton = $("[data-button-type='hero-apple-app-store']"),
+            googlePlayButton = $("a:has(img[src*='Play_Store'])"),
+            appleAppStoreButton = $("a:has(img[src*='AppleStore'])"),
             getBringButton = $("#cta-navbar"),
-            specialHeader = $(".section.home-hero h1.h1-style.special-heading"),
-            whyBringButton = $("a[href*='why-bring']"),
-            whyBringHeader = $(".h1-style"),
+            specialHeader = $("h1.gb-h1-style.special-heading"),
+            whyBringButton = $("a[href*='/features']"),
+            whyBringHeader = $(".gb-h1-style.special-heading"),
             languageDropDown = $("#w-dropdown-toggle-0");
 
 
@@ -51,7 +51,7 @@ public class LandingPage {
     }
 
     public LandingPage assertRedirectToWhyBringPage() {
-        whyBringHeader.shouldHave(text("Bring! simplifies your daily visit at  the supermarket.")); //todo Вопрос к наставнику: допустим ли здесь хардкод, или же мне нужно вынести этот заголвоок?
+        whyBringHeader.shouldHave(text("Plan your shopping together stress-free")); //todo Вопрос к наставнику: допустим ли здесь хардкод, или же мне нужно вынести этот заголвоок?
         return this;
     }
 

@@ -49,10 +49,6 @@ public class AuthorizationTests extends TestBase {
             authorizationPage
                     .btnContinueNotActiveAssertion();
         });
-        //todo fix Здесь возникла сложность: мой базовый url - www.getbring, а на
-        // странице авторизации - web.getbring. Как мне поступать в такой ситуации?
-        // Пока сделал костыль в виде хардкод ссылки в методе.
-
     }
 
     @Test
@@ -104,7 +100,7 @@ public class AuthorizationTests extends TestBase {
                     .emailSetValue(tooShortEmailValue);
         });
 
-        step("Клик не некликабельный элемент.", () -> {
+        step("Клик на некликабельный элемент.", () -> {
             authorizationPage
                     .clickAccountLeadingHeader();
         });

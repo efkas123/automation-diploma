@@ -14,6 +14,7 @@ public class SignupTests {
                 .when()
                 .post("https://api.getbring.com/rest/v2/bringauth/signup")
                 .then()
+                .statusCode(400)
                 .log().all();
     }
 

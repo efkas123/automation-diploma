@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class AppleAppStorePage {
 
     private final SelenideElement
-        appHeader = $("section h1.svelte-1bm25t");
+        appHeader = $("h1.svelte-kps97o");
 
     public AppleAppStorePage assertAppName(String value){
         appHeader.shouldBe(visible);

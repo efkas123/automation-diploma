@@ -10,11 +10,17 @@ import static io.restassured.RestAssured.given;
 public class ItemListApi {
 
     public static void addItem(AddItemRequestModel request) {
-        given()
+        var requestBuilder = given()
                 .spec(authorizedRequestSpec)
                 .contentType(ContentType.URLENC)
                 .formParam("uuid", request.getUuid())
-                .formParam("purchase", request.getPurchase())
+                .formParam("purchase", request.getPurchase());
+
+        if (request.getSpecification() != null) {
+            requestBuilder.formParam("specification", request.getSpecification());
+        }
+
+        requestBuilder
                 .when()
                 .put("/bringlists/" + request.getUuid())
                 .then()
@@ -22,7 +28,7 @@ public class ItemListApi {
 
     }
 
-    public static Response getList(String listUuid){
+    public static Response getList(String listUuid) {
         return given()
                 .spec(authorizedRequestSpec)
                 .when()
@@ -32,7 +38,7 @@ public class ItemListApi {
                 .extract().response();
     }
 
-    public static void removeItem(String listUuid, String itemName){
+    public static void removeItem(String listUuid, String itemName) {
         given()
                 .spec(authorizedRequestSpec)
                 .contentType(ContentType.URLENC)

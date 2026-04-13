@@ -33,6 +33,12 @@ public class PostBringAuthSpec {
             .expectStatusCode(401)
             .build();
 
+    public static RequestSpecification unsuccessfulDeleteListSpec = with()
+            .spec(baseRequestSpec)
+            .log().uri()
+            .log().method()
+            .log().headers();
+
 }
 
 

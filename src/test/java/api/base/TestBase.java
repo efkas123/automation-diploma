@@ -1,7 +1,6 @@
 package api.base;
 
 import api.models.auth.AuthResponseModel;
-import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,8 +19,10 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        //Здесь пришлось спросить у гпт, как по-умолчанию ко всем запросам добавить авторизацию.
-
+        /*todo ОБРАЩАЮ ВНИМАНИЕ - в приложении удаление продукта реализовано через put,
+        а в web версии удаление целого списка не реализовано, поэтому тесты на
+        Delete в проекте не реализованы
+         */
         authData = AuthApi.login();
 
         token = authData.getAccessToken();

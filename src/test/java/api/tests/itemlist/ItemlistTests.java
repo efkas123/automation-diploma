@@ -4,7 +4,6 @@ import api.base.ItemListApi;
 import api.base.TestBase;
 import api.models.itemlist.AddItemRequestModel;
 import io.qameta.allure.Owner;
-import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -20,32 +19,29 @@ public class ItemlistTests extends TestBase {
     @DisplayName("Успешное получение списка продуктов от сервера.")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("UI")
+            @Tag("API")
     })
     @Owner("Филипп Котов")
     void successfulGetItemlist200Test() {
-
-        given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get("https://api.getbring.com/rest/v2/bringlists/4430d23e-cc47-4bee-9a69-407331d8991e")
-                .then()
-                .statusCode(200);
-
+        ItemListApi.getList(bringListUuid);
     }
 
     @Test
     @DisplayName("Успешное добавление товара в список покупок.")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("UI"),
+            @Tag("API"),
             @Tag("Advanced")
     })
     @Owner("Филипп Котов")
     void succesffulItemAdditionToList200Test() {
 
         String purchase = "Trauben";
-        AddItemRequestModel request = new AddItemRequestModel(bringListUuid, purchase);
+
+        AddItemRequestModel request = new AddItemRequestModel();
+
+        request.setPurchase(purchase);
+        request.setUuid(bringListUuid);
 
         ItemListApi.addItem(request);
 
@@ -55,19 +51,51 @@ public class ItemlistTests extends TestBase {
 
     }
 
+    @Test
+    @DisplayName("Успешное добавление товара с описанием в список покупок.")
+    @Tags({
+            @Tag("Позитивный"),
+            @Tag("API"),
+            @Tag("Advanced")
+    })
+    @Owner("Филипп Котов")
+    void succesffulItemWithDescriptionAdditionToList200Test() {
+
+        String purchase = "Trauben";
+        String description = "Кишмиш";
+        AddItemRequestModel request = new AddItemRequestModel();
+
+        request.setPurchase(purchase);
+        request.setUuid(bringListUuid);
+        request.setSpecification(description);
+
+        ItemListApi.addItem(request);
+
+        ItemListApi.getList(bringListUuid)
+                .then()
+                .body(containsString(purchase))
+                .body("purchase.find { it.name == '%s' }.specification".formatted(purchase), notNullValue());
+
+    }
+
 
     @Test
     @DisplayName("Успешное удаление товара из списка покупок.")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("UI"),
+            @Tag("API"),
             @Tag("Advanced")
     })
     @Owner("Филипп Котов")
-    void successfullyDeleteItemFromList200Test(){
+    void successfullyDeleteItemFromList200Test() {
         String purchase = "Trauben";
-        AddItemRequestModel request = new AddItemRequestModel(bringListUuid, purchase);
+        String specification = "тропический";
 
+        AddItemRequestModel request = new AddItemRequestModel();
+
+        request.setPurchase(purchase);
+        request.setSpecification(specification);
+        request.setUuid(bringListUuid);
 
         step("Добавление предмета в список покупок.", () -> {
             ItemListApi.addItem(request);
@@ -83,11 +111,20 @@ public class ItemlistTests extends TestBase {
                     .body("purchase.name", not(hasItem(purchase)))
                     .body("recently.name", hasItem(purchase));
         });
-
-
-
-
     }
+
+    //@Test
+    //@DisplayName("Неуспешная попытка удаления списка.")
+    //@//Tags({
+    //        @Tag("Негативный"),
+    //        @Tag("API"),
+    //})
+    //@Owner("Филипп Котов")
+    //void unsuccessfulDelteListAttempt(){ //todo fix Добавить статус код в имя метода
+    //    given()
+    //            .
+//
+    //}
 
 
 }
