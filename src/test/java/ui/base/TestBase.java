@@ -27,11 +27,10 @@ public class TestBase {
         baseUrl = cfg.baseUrl();
         pageLoadStrategy = "eager";
 
-        String remote = cfg.remoteUrl();
-        if (remote != null && !remote.isBlank()) {
-            Configuration.remote = remote;
+        if ("remote".equalsIgnoreCase(cfg.env())) {
+            Configuration.remote = cfg.remoteUrl();
         } else {
-            Configuration.remote = null; // важно: null, не ""
+            Configuration.remote = null;
         }
 
 

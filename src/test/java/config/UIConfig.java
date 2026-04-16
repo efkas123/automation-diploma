@@ -11,6 +11,10 @@ import org.aeonbits.owner.Config.Sources;
 
 public interface UIConfig extends Config {
 
+    @Key("env")
+    @DefaultValue("local")
+    String env();
+
     @Key("browser")
     @DefaultValue("chrome")
     String browser();

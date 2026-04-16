@@ -27,7 +27,7 @@ dependencies {
     )
 }
 
-test {
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
     systemProperties(System.getProperties())
     testLogging {
@@ -36,4 +36,30 @@ test {
             exceptionFormat "short"
         }
     }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task api(type: Test) {
+    description = "Runs ASPI tests"
+    group = "verificaiton"
+
+    useJUnitPlatform() {
+        includeTags("API")
+    }
+
+    systemProperties(System.getProperties())
+}
+
+task ui(type: Test) {
+    description = "Runs UI tests"
+    group = "verificaiton"
+
+    useJUnitPlatform(){
+        includeTags("UI")
+    }
+
+    systemProperties(System.getProperties())
 }
