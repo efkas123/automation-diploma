@@ -3,7 +3,10 @@ package api.tests.itemlist;
 import api.base.ItemListApi;
 import api.base.TestBase;
 import api.models.itemlist.AddItemRequestModel;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -13,13 +16,19 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
+
+@DisplayName("Корректная работа списка продуктов.")
+@Epic("Список продуктов.")
+@Feature("Главная страница приложения.")
+@Story("Работа списка продуктов.")
 public class ItemlistTests extends TestBase {
 
     @Test
     @DisplayName("Успешное получение списка продуктов от сервера.")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("API")
+            @Tag("API"),
+            @Tag("Список покупок")
     })
     @Owner("Филипп Котов")
     void successfulGetItemlist200Test() {
@@ -31,7 +40,8 @@ public class ItemlistTests extends TestBase {
     @Tags({
             @Tag("Позитивный"),
             @Tag("API"),
-            @Tag("Advanced")
+            @Tag("Advanced"),
+            @Tag("Список покупок")
     })
     @Owner("Филипп Котов")
     void succesffulItemAdditionToList200Test() {
@@ -56,7 +66,8 @@ public class ItemlistTests extends TestBase {
     @Tags({
             @Tag("Позитивный"),
             @Tag("API"),
-            @Tag("Advanced")
+            @Tag("Advanced"),
+            @Tag("Список покупок")
     })
     @Owner("Филипп Котов")
     void succesffulItemWithDescriptionAdditionToList200Test() {
@@ -84,7 +95,8 @@ public class ItemlistTests extends TestBase {
     @Tags({
             @Tag("Позитивный"),
             @Tag("API"),
-            @Tag("Advanced")
+            @Tag("Advanced"),
+            @Tag("Список покупок")
     })
     @Owner("Филипп Котов")
     void successfullyDeleteItemFromList200Test() {
@@ -112,19 +124,5 @@ public class ItemlistTests extends TestBase {
                     .body("recently.name", hasItem(purchase));
         });
     }
-
-    //@Test
-    //@DisplayName("Неуспешная попытка удаления списка.")
-    //@//Tags({
-    //        @Tag("Негативный"),
-    //        @Tag("API"),
-    //})
-    //@Owner("Филипп Котов")
-    //void unsuccessfulDelteListAttempt(){ //todo fix Добавить статус код в имя метода
-    //    given()
-    //            .
-//
-    //}
-
 
 }

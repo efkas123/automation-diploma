@@ -17,6 +17,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 import static io.qameta.allure.Allure.step;
 
+@DisplayName("Корректная переадресация на страницы магазинов приложений.")
 @Epic("Лендинг")
 @Feature("Магазины приложений")
 @Story("Пользователь попадает в магазин приложений при клике на кнопку соответствующего магазина.")
@@ -35,7 +36,8 @@ public class AppMarketsTests extends TestBase {
     @Tags({
             @Tag("Google_Play"),
             @Tag("Позитивный"),
-            @Tag("UI")
+            @Tag("UI"),
+            @Tag("Магазины приложений")
     })
     void successfulOpenPlayMarketBringPageTest(){
 
@@ -67,7 +69,8 @@ public class AppMarketsTests extends TestBase {
     @Tags({
             @Tag("App_Store"),
             @Tag("Позитивный"),
-            @Tag("UI")
+            @Tag("UI"),
+            @Tag("Магазины приложений")
     })
     void successfulOpenAppStoreBringPageTest(){
 

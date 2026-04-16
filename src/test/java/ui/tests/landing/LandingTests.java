@@ -33,7 +33,8 @@ public class LandingTests extends TestBase {
     @Owner("Филипп Котов")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("UI")
+            @Tag("UI"),
+            @Tag("Лендинг")
     })
     void checkMainHeaderVisibility() {
 
@@ -54,7 +55,8 @@ public class LandingTests extends TestBase {
     @Owner("Филипп Котов")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("UI")
+            @Tag("UI"),
+            @Tag("Лендинг")
     })
     void successfulRedirectToWhyBringPage() {
 
@@ -81,7 +83,8 @@ public class LandingTests extends TestBase {
     @Owner("Филипп Котов")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("UI")
+            @Tag("UI"),
+            @Tag("Лендинг")
     })
     void successfulSwitchToDeutschTest() {
 
@@ -109,6 +112,7 @@ public class LandingTests extends TestBase {
             @Tag("Позитивный"),
             @Tag("Баг"),
             @Tag("UI"),
+            @Tag("Лендинг")
     })
     @Owner("Филипп Котов")
     void successfulSwitchToEnglishTest() {
@@ -143,7 +147,8 @@ public class LandingTests extends TestBase {
     @Owner("Филипп Котов")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("UI")
+            @Tag("UI"),
+            @Tag("Лендинг")
     })
     void successfulRedirectToBringAuthorizationPageTest(){
         step("Загрузка главной страницы.", () -> {

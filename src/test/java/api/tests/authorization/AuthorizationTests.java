@@ -2,7 +2,10 @@ package api.tests.authorization;
 
 import config.APIConfig;
 import config.ConfigProvider;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -14,7 +17,10 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
-
+@DisplayName("Корректная работы авторизации через API.")
+@Epic("Авторизация")
+@Feature("Bringauth API")
+@Story("Авторизация пользователя.")
 public class AuthorizationTests {
 
     TestData random = new TestData();
@@ -43,7 +49,8 @@ public class AuthorizationTests {
     @DisplayName("Успешная попытка входа при вводе валидных учётных данных пользователя.")
     @Tags({
             @Tag("API"),
-            @Tag("Позитивный")
+            @Tag("Позитивный"),
+            @Tag("Авторизация")
     })
     @Owner("Филипп Котов")
     void SuccessfulLoginAttempt200Test() {
@@ -61,7 +68,8 @@ public class AuthorizationTests {
     @DisplayName("Успешное получение токена авторизации.")
     @Tags({
             @Tag("API"),
-            @Tag("Позитивный")
+            @Tag("Позитивный"),
+            @Tag("Авторизация")
     })
     @Owner("Филипп Котов")
     void successfulAcquiringAccessToken200Test() {
@@ -81,7 +89,8 @@ public class AuthorizationTests {
     @DisplayName("Отказ в авторизации при передаче невалидных учётных данных пользователя.")
     @Tags({
             @Tag("API"),
-            @Tag("Негативный")
+            @Tag("Негативный"),
+            @Tag("Авторизация")
     })
     @Owner("Филипп Котов")
     void unsuccessfulBadCredentialsLogin401Test(){

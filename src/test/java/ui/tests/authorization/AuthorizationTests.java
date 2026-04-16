@@ -13,7 +13,7 @@ import ui.pages.authorization.AuthorizationPage;
 
 import static io.qameta.allure.Allure.step;
 
-
+@DisplayName("Корректная работа авторизации.")
 @Epic("Авторизация")
 @Feature("Страница /login")
 @Story("Валидная работа элементов страницы авторизации.")
@@ -30,7 +30,8 @@ public class AuthorizationTests extends TestBase {
     @DisplayName("Поле ввода email не принимает значения, не соответствующие маске value@domain.name")
     @Tags({
             @Tag("Негативный"),
-            @Tag("UI")
+            @Tag("UI"),
+            @Tag("Авторизация")
     })
     @Owner("Филипп Котов")
     void emailInputDoesntAcceptNonMaskTest() {
@@ -56,7 +57,8 @@ public class AuthorizationTests extends TestBase {
     @Tags({
             @Tag("Негативный"),
             @Tag("Баг"),
-            @Tag("UI")
+            @Tag("UI"),
+            @Tag("Авторизация")
     })
     @Owner("Филипп Котов")
     void emailInputShouldntAcceptValuesHigherThan254Test() {
@@ -85,7 +87,8 @@ public class AuthorizationTests extends TestBase {
     @DisplayName("Поле ввода email не должно принимать значения меньше 7 символов")
     @Tags({
             @Tag("Негативный"),
-            @Tag("UI")
+            @Tag("UI"),
+            @Tag("Авторизация")
     })
     @Owner("Филипп Котов")
     void emailInputShouldntAcceptValuesLowerThan7Test() {
