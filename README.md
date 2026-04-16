@@ -1,5 +1,8 @@
 <h1 align="center">Проект автоматизации тестирования <a target="_blank" href="https://www.getbring.com/">Bring!</a></h1>  
-  <p align="center">  
+
+<img alt="Bring landing page" src="images/screenshots/bringlanding.png"/>
+
+<p align="center">  
   UI + API автотесты для Bring! shopping list.   
 </p>  
   
