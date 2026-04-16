@@ -27,8 +27,7 @@ sticker: emoji//1f427
   - [Удалённый запуск](#удалённый-запуск)  
 - [Конфигурация проекта](#конфигурация-проекта)  
 - [Интеграция с Allure Report](#интеграция-с-allure-report)  
-- [Интеграция с Jenkins](#интеграция-с-jenkins)  
-- [Перспективы развития](#перспективы-развития)  
+- [Интеграция с Jenkins](#интеграция-с-jenkins)
   
 ---  
   
@@ -48,10 +47,24 @@ sticker: emoji//1f427
 ---  
   
 ## Технологии и инструменты  
-  
-<p align="center">  
-  ВСТАВИТЬ ИКОНКИ ТЕХНОЛОГИЙ  
-</p>  
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin: 16px 0;">
+  <a href="https://www.jetbrains.com/idea/"><img alt="IntelliJ IDEA" height="50" src="images/logo/idea.svg" width="50"/></a>
+  <a href="https://github.com/allure-framework/"><img alt="Allure Report" height="50" src="images/logo/Allure.svg" width="50"/></a>
+<a href="https://github.com/"><img alt="GitHub" height="50" src="images/logo/GitHub.svg" width="50"/></a>  
+<a href="https://gradle.org/"><img alt="Gradle" height="50" src="images/logo/Gradle.svg" width="50"/></a>  
+<a href="https://www.java.com/"><img alt="Java" height="50" src="images/logo/Java.svg" width="50"/></a>
+<a href="https://www.jenkins.io/"><img alt="Jenkins" height="50" src="images/logo/Jenkins.svg" width="50"/></a>
+<a href="https://www.atlassian.com/software/jira"><img alt="Jira" height="50" src="images/logo/Jira.svg" width="50"/></a>  
+<a href="https://junit.org/junit5/"><img alt="JUnit 5" height="50" src="images/logo/Junit5.svg" width="50"/></a>
+<a href="https://rest-assured.io/"><img alt="RestAssured" height="50" src="images/logo/RestAssured.svg" width="50"/></a>
+<a href="https://selenide.org/"><img alt="Selenide" height="50" src="images/logo/Selenide.svg" width="50"/></a>
+  <a href="https://telegram.org/"><img alt="Telegram" height="50" src="images/logo/Telegram.svg" width="50"/></a>
+<a href="https://aerokube.com/selenoid/"><img alt="Selenoid" height="50" src="images/logo/Selenoid.svg" width="50"/></a>
+
+</div>
+
+___
   
 **Используемый стек:**  
 - `Java 17`  
@@ -267,7 +280,9 @@ gradle allureServe
 - browser logs
 - video
 
-<p align="center"> ВСТАВИТЬ СКРИН ГЛАВНОЙ СТРАНИЦЫ ALLURE </p> <p align="center"> ВСТАВИТЬ СКРИН SUITES / TEST DETAILS </p>
+<img alt="Allure main page" src="images/screenshots/AllureMP.png"/></a>
+<img alt="Allure test details" src="images/screenshots/TestDetails.png"/></a>
+
 
 ---
 
@@ -287,6 +302,7 @@ gradle allureServe
 
 gradle clean ui -Denv=remote -DremoteUrl=http://ВАШ_SELENOID/wd/hub
 
-<p align="center"> ВСТАВИТЬ ФОТО ПАНЕЛИ JENKINS </p> <p align="center"> ВСТАВИТЬ ФОТО BUILD WITH PARAMETERS </p>
+<img alt="Jenkins main page" src="images/screenshots/JenkinsMP.png"/></a>
+<img alt="Jenkins main page" src="images/screenshots/ParametersJenkins.png"/></a>
 
 ---
