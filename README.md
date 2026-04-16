@@ -1,7 +1,3 @@
----
-sticker: emoji//1f427
----
-  
 <h1 align="center">Проект автоматизации тестирования <a target="_blank" href="https://www.getbring.com/">Bring!</a></h1>  
   <p align="center">  
   UI + API автотесты для Bring! shopping list.   
@@ -49,7 +45,7 @@ sticker: emoji//1f427
 ## Технологии и инструменты  
 
 <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin: 16px 0;">
-  <a href="https://www.jetbrains.com/idea/"><img alt="IntelliJ IDEA" height="50" src="images/logo/idea.svg" width="50"/></a>
+  <a href="https://www.jetbrains.com/idea/"><img alt="IntelliJ IDEA" height="50" src="images/logo/Idea.svg" width="50"/></a>
   <a href="https://github.com/allure-framework/"><img alt="Allure Report" height="50" src="images/logo/Allure.svg" width="50"/></a>
 <a href="https://github.com/"><img alt="GitHub" height="50" src="images/logo/GitHub.svg" width="50"/></a>  
 <a href="https://gradle.org/"><img alt="Gradle" height="50" src="images/logo/Gradle.svg" width="50"/></a>  
