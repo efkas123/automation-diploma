@@ -3,6 +3,7 @@ package api.base;
 import api.models.auth.AuthResponseModel;
 import config.APIConfig;
 import config.ConfigProvider;
+import io.qameta.allure.Step;
 
 import static api.specs.authorization.PostBringAuthSpec.postBringAuthRequestSpec;
 import static api.specs.authorization.PostBringAuthSpec.postBringAuthResponseSpec;
@@ -12,6 +13,7 @@ public class AuthApi {
 
     static APIConfig api = ConfigProvider.api();
 
+    @Step("Авторизация пользователя через API")
     public static AuthResponseModel login() {
         AuthResponseModel response = given()
                 .spec(postBringAuthRequestSpec)
