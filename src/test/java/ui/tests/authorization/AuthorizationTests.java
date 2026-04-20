@@ -20,9 +20,9 @@ import static io.qameta.allure.Allure.step;
 public class AuthorizationTests extends TestBase {
 
     private final String
-            tooLongEmailValue = "asdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffasdasdfffzv@gmail.com",
-            tooShortEmailValue = "a@a.a",
-            nonEmailMaskValue = ".@somevalue";
+            TOO_LONG_EMAIL = "a".repeat(255) + "@gmail.com",
+            TOO_SHORT_EMAIL_VALUE = "a@a.a",
+            NON_EMAIL_MASK_VALUE = ".@somevalue";
 
     AuthorizationPage authorizationPage = new AuthorizationPage();
 
@@ -43,7 +43,7 @@ public class AuthorizationTests extends TestBase {
 
         step("Ввод значения email, не соответствующего маске mail@example.com", () -> {
             authorizationPage
-                    .emailSetValue(nonEmailMaskValue);
+                    .emailSetValue(NON_EMAIL_MASK_VALUE);
         });
 
         step("Проверка неактивности кнопки \"Continue\"", () -> {
@@ -70,7 +70,7 @@ public class AuthorizationTests extends TestBase {
 
         step("Задание слишком длинного значения email (255 знаков)", () -> {
             authorizationPage
-                    .emailSetValue(tooLongEmailValue);
+                    .emailSetValue(TOO_LONG_EMAIL);
         });
 
 
@@ -100,7 +100,7 @@ public class AuthorizationTests extends TestBase {
 
         step("Задание слишком короткого значения email (6 знаков).", () -> {
             authorizationPage
-                    .emailSetValue(tooShortEmailValue);
+                    .emailSetValue(TOO_SHORT_EMAIL_VALUE);
         });
 
         step("Клик на некликабельный элемент.", () -> {
