@@ -21,9 +21,6 @@ public class PostBringAuthSpec {
             .log().headers();
 
     public static ResponseSpecification postBringAuthResponseSpec = new ResponseSpecBuilder()
-            .log(STATUS)
-            .log(BODY)
-            .log(HEADERS)
             .log(BODY)
             .expectStatusCode(200)
             .build();
