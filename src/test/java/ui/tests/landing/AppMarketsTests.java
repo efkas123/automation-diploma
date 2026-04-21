@@ -41,26 +41,18 @@ public class AppMarketsTests extends TestBase {
     })
     void successfulOpenPlayMarketBringPageTest(){
 
-        step("Загрузка главной страницы.", () -> {
-            landingPage
-                    .openLandingPage();
-        });
+        landingPage
+                .openLandingPage()
+                .clickGooglePlayStore()
+                .switchToTab(1);
 
-        step("Нажатие кнопки Google Play.", () -> {
-            landingPage
-                    .clickGooglePlayStore();
-        });
-
-        step("Переключение на соответствующую магазину вкладку.", () -> {
-            landingPage.
-                    switchToTab(1);
+        step("Проверка переключения на соответствующую вкладку.", () -> {
             webdriver().shouldHave(urlContaining("https://play.google.com/store/apps/"));
         });
 
-        step("Проверка открытия страницы приложения в Google Play.", () -> {
-            googleMarket
-                    .assertAppName(appName);
-        });
+        googleMarket
+                .assertAppName(appName);
+
     }
 
     @Test
@@ -74,25 +66,17 @@ public class AppMarketsTests extends TestBase {
     })
     void successfulOpenAppStoreBringPageTest(){
 
-        step("Загрузка главной страницы.", () -> {
-            landingPage
-                    .openLandingPage();
-        });
+        landingPage
+                .openLandingPage()
+                .clickAppleAppStore()
+                .switchToTab(1);
 
-        step("Нажатие кнопки App Store.", () -> {
-            landingPage
-                    .clickAppleAppStore();
-        });
-
-        step("Переключение на соответствующую магазину вкладку", () -> {
-            switchTo().window(1);
+        step("Проверка переключения на соответствующую вкладку.", () -> {
             webdriver().shouldHave(urlContaining("https://apps.apple.com/"));
         });
 
-        step("Проверка открытия страницы приложения в App Store", () -> {
-            appStore
-                    .assertAppName(appName);
-        });
+        appStore
+                .assertAppName(appName);
 
     }
 }

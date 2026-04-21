@@ -36,20 +36,11 @@ public class AuthorizationTests extends TestBase {
     @Owner("Филипп Котов")
     void emailInputDoesntAcceptNonMaskTest() {
 
-        step("Загрузка главной страницы", () -> {
-            authorizationPage.
-                    openAuthorizationPage();
-        });
+    authorizationPage
+            .openAuthorizationPage()
+            .emailSetValue(NON_EMAIL_MASK_VALUE)
+            .btnContinueNotActiveAssertion();
 
-        step("Ввод значения email, не соответствующего маске mail@example.com", () -> {
-            authorizationPage
-                    .emailSetValue(NON_EMAIL_MASK_VALUE);
-        });
-
-        step("Проверка неактивности кнопки \"Continue\"", () -> {
-            authorizationPage
-                    .btnContinueNotActiveAssertion();
-        });
     }
 
     @Test
@@ -63,23 +54,11 @@ public class AuthorizationTests extends TestBase {
     @Owner("Филипп Котов")
     void emailInputShouldntAcceptValuesHigherThan254Test() {
 
-        step("Загрузка главной страницы", () -> {
-            authorizationPage
-                    .openAuthorizationPage();
-        });
-
-        step("Задание слишком длинного значения email (255 знаков)", () -> {
-            authorizationPage
-                    .emailSetValue(TOO_LONG_EMAIL);
-        });
-
-
-        step("Верификация результата.", () -> {
-            authorizationPage
-                    .skipIfContinueEnabledKnownBug()
-                    .btnContinueNotActiveAssertion();
-        });
-
+        authorizationPage
+                .openAuthorizationPage()
+                .emailSetValue(TOO_LONG_EMAIL)
+                .skipIfContinueEnabledKnownBug()
+                .btnContinueNotActiveAssertion();
 
     }
 
@@ -93,27 +72,12 @@ public class AuthorizationTests extends TestBase {
     @Owner("Филипп Котов")
     void emailInputShouldntAcceptValuesLowerThan7Test() {
 
-        step("Загрузка главной страницы.", () -> {
-            authorizationPage
-                    .openAuthorizationPage();
-        });
-
-        step("Задание слишком короткого значения email (6 знаков).", () -> {
-            authorizationPage
-                    .emailSetValue(TOO_SHORT_EMAIL_VALUE);
-        });
-
-        step("Клик на некликабельный элемент.", () -> {
-            authorizationPage
-                    .clickAccountLeadingHeader();
-        });
-
-        step("Верификация результата.", () -> {
-            authorizationPage
-                    .invalidEmailAlertAssertion()
-                    .btnContinueNotActiveAssertion();
-        });
-
+        authorizationPage
+                .openAuthorizationPage()
+                .emailSetValue(TOO_SHORT_EMAIL_VALUE)
+                .clickAccountLeadingHeader()
+                .invalidEmailAlertAssertion()
+                .btnContinueNotActiveAssertion();
 
     }
 

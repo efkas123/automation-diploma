@@ -38,15 +38,9 @@ public class LandingTests extends TestBase {
     })
     void checkMainHeaderVisibility() {
 
-        step("Загрузка главной страницы.", () -> {
-            landingPage
-                    .openLandingPage();
-        });
-        step("Проверка отображения заголовка", () -> {
-            landingPage
-                    .assertSpecialHeaderVisibility(specialHeaderText);
-        });
-
+        landingPage
+                .openLandingPage()
+                .assertSpecialHeaderVisibility(specialHeaderText);
 
     }
 
@@ -60,20 +54,10 @@ public class LandingTests extends TestBase {
     })
     void successfulRedirectToWhyBringPage() {
 
-        step("Загрузка главной страницы.", () -> {
-            landingPage
-                    .openLandingPage();
-        });
-        step("Клик по кнопке 'Why Bring?'.", () -> {
-            landingPage
-                    .clickWhyBringButton();
-        });
-        step("Подтверждение успешной переадресации.", () -> {
-            landingPage
-                    .assertRedirectToWhyBringPage();
-        });
-
-
+        landingPage
+                .openLandingPage()
+                .clickWhyBringButton()
+                .assertRedirectToWhyBringPage();
 
     }
 
@@ -88,21 +72,10 @@ public class LandingTests extends TestBase {
     })
     void successfulSwitchToDeutschTest() {
 
-        step("Загрузка главной страницы", () -> {
-            landingPage
-                    .openLandingPage();
-        });
-        step("Выбор немецкого языка", () -> {
-            landingPage
-                    .selectLanguage("Deutsch");
-        });
-
-        step("Верификация результата", () -> {
-            landingPage
-                    .assertSpecialHeaderVisibility(deutschSpecialHeaderText);
-        });
-
-
+        landingPage
+                .openLandingPage()
+                .selectLanguage("Deutsch")
+                .assertSpecialHeaderVisibility(deutschSpecialHeaderText);
 
     }
 
@@ -117,28 +90,19 @@ public class LandingTests extends TestBase {
     @Owner("Филипп Котов")
     void successfulSwitchToEnglishTest() {
 
-        step("Открытие главной страницы", () -> {
-            landingPage
-                    .openLandingPage();
-        });
+        landingPage
+                .openLandingPage();
 
         step("Accept cookies", () -> {
             new CookieBanner().acceptCookieIfVisible();
         });
 
-        step("Смена языка на немецкий", () -> {
-            landingPage
-                    .selectLanguage("Deutsch");
-        });
-        step("Попытка смены языка на английский", () -> {
-            landingPage
-                    .selectLanguage("English");
-        });
-        step("Подтверждение успешной смены языка на английский", () -> {
-            landingPage
-                    .checkSpecialHeaderOrAbort()
-                    .assertSpecialHeaderVisibility(specialHeaderText);
-        });
+        landingPage
+                .selectLanguage("Deutsch")
+                .selectLanguage("English")
+                .checkSpecialHeaderOrAbort()
+                .assertSpecialHeaderVisibility(specialHeaderText);
+
 
     }
 
@@ -151,24 +115,14 @@ public class LandingTests extends TestBase {
             @Tag("Лендинг")
     })
     void successfulRedirectToBringAuthorizationPageTest(){
-        step("Загрузка главной страницы.", () -> {
-           landingPage
-                   .openLandingPage();
-        });
 
-        step("Нажатие кнопки \"Get bring!\".", () -> {
-            landingPage
-                    .clickGetBringButton();
-        });
+        landingPage
+                .openLandingPage()
+                .clickGetBringButton()
+                .switchToTab(1);
 
-        step("Переключение на соответствующую вкладку.", () -> {
-            landingPage.switchToTab(1);
-        });
-
-        step("Верификация результата.", () -> {
-            authorizationPage
-                    .authorizationPageVisibleAssertion();
-        });
+        authorizationPage
+                .authorizationPageVisibleAssertion();
     }
 
 }
