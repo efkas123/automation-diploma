@@ -21,14 +21,16 @@ import static org.hamcrest.Matchers.*;
 @Epic("Список продуктов.")
 @Feature("Главная страница приложения.")
 @Story("Работа списка продуктов.")
+@Tags({
+        @Tag("API"),
+        @Tag("Список покупок")
+})
 public class ItemlistTests extends TestBase {
 
     @Test
     @DisplayName("Успешное получение списка продуктов от сервера.")
     @Tags({
-            @Tag("Позитивный"),
-            @Tag("API"),
-            @Tag("Список покупок")
+            @Tag("Позитивный")
     })
     @Owner("Филипп Котов")
     void successfulGetItemlist200Test() {
@@ -39,9 +41,7 @@ public class ItemlistTests extends TestBase {
     @DisplayName("Успешное добавление товара в список покупок.")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("API"),
-            @Tag("Advanced"),
-            @Tag("Список покупок")
+            @Tag("Advanced")
     })
     @Owner("Филипп Котов")
     void succesffulItemAdditionToList200Test() {
@@ -65,9 +65,7 @@ public class ItemlistTests extends TestBase {
     @DisplayName("Успешное добавление товара с описанием в список покупок.")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("API"),
-            @Tag("Advanced"),
-            @Tag("Список покупок")
+            @Tag("Advanced")
     })
     @Owner("Филипп Котов")
     void succesffulItemWithDescriptionAdditionToList200Test() {
@@ -94,9 +92,7 @@ public class ItemlistTests extends TestBase {
     @DisplayName("Успешное удаление товара из списка покупок.")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("API"),
-            @Tag("Advanced"),
-            @Tag("Список покупок")
+            @Tag("Advanced")
     })
     @Owner("Филипп Котов")
     void successfullyDeleteItemFromList200Test() {

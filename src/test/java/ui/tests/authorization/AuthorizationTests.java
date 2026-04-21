@@ -11,13 +11,16 @@ import org.junit.jupiter.api.Test;
 import ui.base.TestBase;
 import ui.pages.authorization.AuthorizationPage;
 
-import static io.qameta.allure.Allure.step;
 import static utils.TestData.*;
 
 @DisplayName("Корректная работа авторизации.")
 @Epic("Авторизация")
 @Feature("Страница /login")
 @Story("Валидная работа элементов страницы авторизации.")
+@Tags({
+        @Tag("UI"),
+        @Tag("Авторизация")
+})
 public class AuthorizationTests extends TestBase {
 
     AuthorizationPage authorizationPage = new AuthorizationPage();
@@ -25,9 +28,7 @@ public class AuthorizationTests extends TestBase {
     @Test
     @DisplayName("Поле ввода email не принимает значения, не соответствующие маске value@domain.name")
     @Tags({
-            @Tag("Негативный"),
-            @Tag("UI"),
-            @Tag("Авторизация")
+            @Tag("Негативный")
     })
     @Owner("Филипп Котов")
     void emailInputDoesntAcceptNonMaskTest() {
@@ -43,9 +44,7 @@ public class AuthorizationTests extends TestBase {
     @DisplayName("Поле ввода email не должно принимать значения больше 254 символов")
     @Tags({
             @Tag("Негативный"),
-            @Tag("Баг"),
-            @Tag("UI"),
-            @Tag("Авторизация")
+            @Tag("Баг")
     })
     @Owner("Филипп Котов")
     void emailInputShouldntAcceptValuesHigherThan254Test() {
@@ -61,9 +60,7 @@ public class AuthorizationTests extends TestBase {
     @Test
     @DisplayName("Поле ввода email не должно принимать значения меньше 7 символов")
     @Tags({
-            @Tag("Негативный"),
-            @Tag("UI"),
-            @Tag("Авторизация")
+            @Tag("Негативный")
     })
     @Owner("Филипп Котов")
     void emailInputShouldntAcceptValuesLowerThan7Test() {

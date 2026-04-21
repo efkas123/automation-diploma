@@ -19,6 +19,10 @@ import static io.qameta.allure.Allure.step;
 @Epic("Лендинг")
 @Feature("Навигация на главной странице")
 @Story("Корректное отображение лендинг страницы.")
+@Tags({
+        @Tag("UI"),
+        @Tag("Лендинг")
+})
 public class LandingTests extends TestBase {
 
     private final String
@@ -32,9 +36,7 @@ public class LandingTests extends TestBase {
     @DisplayName("Отображение заголовка 'The simplest shopping list for sharing.' на главной странице Bring!")
     @Owner("Филипп Котов")
     @Tags({
-            @Tag("Позитивный"),
-            @Tag("UI"),
-            @Tag("Лендинг")
+            @Tag("Позитивный")
     })
     void checkMainHeaderVisibility() {
 
@@ -48,9 +50,7 @@ public class LandingTests extends TestBase {
     @DisplayName("Переадресация на страницу 'Why Bring?' при клике на соответствующую кнопку.")
     @Owner("Филипп Котов")
     @Tags({
-            @Tag("Позитивный"),
-            @Tag("UI"),
-            @Tag("Лендинг")
+            @Tag("Позитивный")
     })
     void successfulRedirectToWhyBringPage() {
 
@@ -66,9 +66,7 @@ public class LandingTests extends TestBase {
     @DisplayName("Успешная смена языка с английского на немецкий.")
     @Owner("Филипп Котов")
     @Tags({
-            @Tag("Позитивный"),
-            @Tag("UI"),
-            @Tag("Лендинг")
+            @Tag("Позитивный")
     })
     void successfulSwitchToDeutschTest() {
 
@@ -83,9 +81,7 @@ public class LandingTests extends TestBase {
     @DisplayName("Успешная смена языка с немецкого на английский")
     @Tags({
             @Tag("Позитивный"),
-            @Tag("Баг"),
-            @Tag("UI"),
-            @Tag("Лендинг")
+            @Tag("Баг")
     })
     @Owner("Филипп Котов")
     void successfulSwitchToEnglishTest() {
@@ -110,9 +106,7 @@ public class LandingTests extends TestBase {
     @DisplayName("Успешный переход с лендинга на страницу авторизации в Bring!.")
     @Owner("Филипп Котов")
     @Tags({
-            @Tag("Позитивный"),
-            @Tag("UI"),
-            @Tag("Лендинг")
+            @Tag("Позитивный")
     })
     void successfulRedirectToBringAuthorizationPageTest(){
 

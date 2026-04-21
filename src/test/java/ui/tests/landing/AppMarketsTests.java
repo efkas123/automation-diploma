@@ -22,6 +22,10 @@ import static utils.TestData.BRING_APP_NAME;
 @Epic("Лендинг")
 @Feature("Магазины приложений")
 @Story("Пользователь попадает в магазин приложений при клике на кнопку соответствующего магазина.")
+@Tags({
+        @Tag("UI"),
+        @Tag("Магазины приложений")
+})
 public class AppMarketsTests extends TestBase {
 
     LandingPage landingPage = new LandingPage();
@@ -33,9 +37,7 @@ public class AppMarketsTests extends TestBase {
     @Owner("Филипп Котов")
     @Tags({
             @Tag("Google_Play"),
-            @Tag("Позитивный"),
-            @Tag("UI"),
-            @Tag("Магазины приложений")
+            @Tag("Позитивный")
     })
     void successfulOpenPlayMarketBringPageTest(){
 
@@ -58,9 +60,7 @@ public class AppMarketsTests extends TestBase {
     @Owner("Филипп Котов")
     @Tags({
             @Tag("App_Store"),
-            @Tag("Позитивный"),
-            @Tag("UI"),
-            @Tag("Магазины приложений")
+            @Tag("Позитивный")
     })
     void successfulOpenAppStoreBringPageTest(){
 

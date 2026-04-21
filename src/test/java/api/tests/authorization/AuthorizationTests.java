@@ -21,6 +21,9 @@ import static org.hamcrest.Matchers.notNullValue;
 @Epic("Авторизация")
 @Feature("Bringauth API")
 @Story("Авторизация пользователя.")
+@Tags({
+        @Tag("API")
+})
 public class AuthorizationTests {
 
     TestData random = new TestData();
@@ -29,7 +32,6 @@ public class AuthorizationTests {
     @Test
     @DisplayName("Отказ в регистрации пользователя пользователя с обходом Captcha.")
     @Tags({
-            @Tag("API"),
             @Tag("Негативный")
     })
     @Owner("Филипп Котов")
@@ -48,7 +50,6 @@ public class AuthorizationTests {
     @Test
     @DisplayName("Успешная попытка входа при вводе валидных учётных данных пользователя.")
     @Tags({
-            @Tag("API"),
             @Tag("Позитивный"),
             @Tag("Авторизация")
     })
@@ -67,7 +68,6 @@ public class AuthorizationTests {
     @Test
     @DisplayName("Успешное получение токена авторизации.")
     @Tags({
-            @Tag("API"),
             @Tag("Позитивный"),
             @Tag("Авторизация")
     })
@@ -88,7 +88,6 @@ public class AuthorizationTests {
     @Test
     @DisplayName("Отказ в авторизации при передаче невалидных учётных данных пользователя.")
     @Tags({
-            @Tag("API"),
             @Tag("Негативный"),
             @Tag("Авторизация")
     })
