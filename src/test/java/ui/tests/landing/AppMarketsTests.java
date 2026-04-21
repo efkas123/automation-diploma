@@ -16,6 +16,7 @@ import ui.pages.landing.LandingPage;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 import static io.qameta.allure.Allure.step;
+import static utils.TestData.BRING_APP_NAME;
 
 @DisplayName("Корректная переадресация на страницы магазинов приложений.")
 @Epic("Лендинг")
@@ -26,9 +27,6 @@ public class AppMarketsTests extends TestBase {
     LandingPage landingPage = new LandingPage();
     GooglePlayMarketPage googleMarket = new GooglePlayMarketPage();
     AppleAppStorePage appStore = new AppleAppStorePage();
-
-    private final String
-            appName = "Bring!";
 
     @Test
     @DisplayName("Успешное открытие страницы Bring! в Google Play")
@@ -51,7 +49,7 @@ public class AppMarketsTests extends TestBase {
         });
 
         googleMarket
-                .assertAppName(appName);
+                .assertAppName(BRING_APP_NAME);
 
     }
 
@@ -76,7 +74,7 @@ public class AppMarketsTests extends TestBase {
         });
 
         appStore
-                .assertAppName(appName);
+                .assertAppName(BRING_APP_NAME);
 
     }
 }

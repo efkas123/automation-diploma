@@ -12,17 +12,13 @@ import ui.base.TestBase;
 import ui.pages.authorization.AuthorizationPage;
 
 import static io.qameta.allure.Allure.step;
+import static utils.TestData.*;
 
 @DisplayName("Корректная работа авторизации.")
 @Epic("Авторизация")
 @Feature("Страница /login")
 @Story("Валидная работа элементов страницы авторизации.")
 public class AuthorizationTests extends TestBase {
-
-    private final String
-            TOO_LONG_EMAIL = "a".repeat(255) + "@gmail.com",
-            TOO_SHORT_EMAIL_VALUE = "a@a.a",
-            NON_EMAIL_MASK_VALUE = ".@somevalue";
 
     AuthorizationPage authorizationPage = new AuthorizationPage();
 
