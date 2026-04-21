@@ -7,6 +7,7 @@ import config.UIConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
@@ -42,9 +43,11 @@ public class TestBase {
 
         browserCapabilities = capabilities;
 
+    }
+
+    @BeforeEach
+    void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        //todo fix вопрос: мне стоит добавлять listener в before all или before each?
-        //Как понимаю, всё же в before all.
     }
 
 
