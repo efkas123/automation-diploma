@@ -299,7 +299,7 @@ gradle allureServe
 
 ### Пример запуска из Jenkins
 
-gradle clean ui -Denv=local -DremoteUrl=http://ВАШ_SELENOID/wd/hub
+gradle clean ui -Denv=remote -DremoteUrl=http://ВАШ_SELENOID/wd/hub
 
 <img alt="Jenkins main page" src="images/screenshots/JenkinsMP.png"/></a>
 <img alt="Jenkins main page" src="images/screenshots/ParametersJenkins.png"/></a>
