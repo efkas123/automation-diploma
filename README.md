@@ -117,9 +117,8 @@ ___
 
 #### Видео выполнения
   
-<video alt="Landing autotest video" src="videos/BringLanguageSwitch.mp4"></video>
+<img alt="Landing autotest video" src="Videos/Bring-language-switch.gif">
 
----  
   
 ## Реализованные проверки  
 ___
