@@ -110,7 +110,15 @@ ___
   - page source  
   - browser console logs  
   - video  
+
+#### Отчёт в Telegram
+
+<img alt="Telegram notifications" src ="images/screenshots/TelegramNotifications.png">
+
+#### Видео выполнения
   
+<video alt="Landing autotest video" src="videos/BringLanguageSwitch.mp4"></video>
+
 ---  
   
 ## Реализованные проверки  
