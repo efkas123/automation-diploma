@@ -1,6 +1,6 @@
 package api.tests.itemlist;
 
-import api.base.ItemListApi;
+import api.apiclient.ItemListApi;
 import api.base.TestBase;
 import api.models.itemlist.AddItemRequestModel;
 import io.qameta.allure.Epic;

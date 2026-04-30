@@ -1,4 +1,4 @@
-package api.base;
+package api.apiclient;
 
 import api.models.auth.AuthResponseModel;
 import config.APIConfig;

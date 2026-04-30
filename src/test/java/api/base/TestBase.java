@@ -1,5 +1,6 @@
 package api.base;
 
+import api.apiclient.AuthApi;
 import api.models.auth.AuthResponseModel;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;

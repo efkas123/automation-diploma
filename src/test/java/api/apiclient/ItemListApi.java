@@ -1,4 +1,4 @@
-package api.base;
+package api.apiclient;
 
 import api.models.itemlist.AddItemRequestModel;
 import io.qameta.allure.Step;
