@@ -54,7 +54,7 @@ public class AuthorizationTests {
             @Tag("Авторизация")
     })
     @Owner("Филипп Котов")
-    void SuccessfulLoginAttempt200Test() {
+    void successfulLoginAttempt200Test() {
         given()
                 .spec(postBringAuthRequestSpec)
                 .formParam("email", api.username())

@@ -26,7 +26,7 @@ public class AuthorizationTests extends TestBase {
     AuthorizationPage authorizationPage = new AuthorizationPage();
 
     @Test
-    @DisplayName("Поле ввода email не принимает значения, не соответствующие маске value@domain.name")
+    @DisplayName("Поле вв1ода email не принимает значения, не соответствующие маске value@domain.name")
     @Tags({
             @Tag("Негативный")
     })
