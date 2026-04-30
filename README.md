@@ -265,6 +265,8 @@ src/test/resources/config
 
 ## Интеграция с Allure Report
 
+[Ссылка на пример allure отчёта](https://jenkins.autotests.cloud/job/C39-FilippKotov-BringApp-Diploma-V2/47/allure/)
+
 После выполнения тестов можно сгенерировать Allure-отчёт:
 
 ### Сгенерировать отчёт
@@ -293,6 +295,8 @@ gradle allureServe
 ---
 
 ## Интеграция с Jenkins
+
+[Ссылка на сборку Jenkins](https://jenkins.autotests.cloud/job/C39-FilippKotov-BringApp-Diploma-V2/)
 
 Проект подготовлен к запуску из Jenkins с параметрами.
 
