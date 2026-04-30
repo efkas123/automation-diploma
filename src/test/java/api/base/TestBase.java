@@ -15,7 +15,7 @@ public class TestBase {
     protected static String bringListUuid;
 
 
-    protected static RequestSpecification authorizedRequestSpec;
+    public static RequestSpecification authorizedRequestSpec;
     protected static AuthResponseModel authData;
 
     @BeforeAll
